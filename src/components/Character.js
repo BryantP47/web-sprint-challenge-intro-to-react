@@ -1,4 +1,5 @@
 import React  from 'react'
+import handlers from '../mocks/handlers'
 
 
 
@@ -10,11 +11,13 @@ import React  from 'react'
 
  const Character = (props) => {
 const {data} = props
+console.log(data)
     return(
         <div className="character">
           <div>
-        <h3>{props.name}</h3>
-           
+        {/* {handlers.map(index => {
+       return <li kry ={index}>{data.name} </li>
+        })}   */}
            </div>
         </div>
     )
