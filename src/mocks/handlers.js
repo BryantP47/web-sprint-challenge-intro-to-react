@@ -667,3 +667,6 @@ export const films = [
     ],
   },
 ];
+
+
+export default handlers
