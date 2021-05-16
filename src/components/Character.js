@@ -1,26 +1,46 @@
-import React  from 'react'
-import handlers from '../mocks/handlers'
+import React, { useEffect, useState }  from 'react'
+
+import axios from 'axios'
+// import Characterinfo from './component/Characterinfo.js'
+
+export default function Character (props) {
+const { handlers, close } = props
+const[details, setDetails] = useState(null)
 
 
+ useEffect(() => {
+  axios.get('https://swapi.dev/api/people')
+  .then(function (response) {
+    // handle success
+    console.log(response.handlers);
+    setDetails(response.handlers)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+return() =>{
+  console.log('component unmounting, the id was' + handlers)
+}
+}, [handlers])
 
-
-
-
-
-
-
- const Character = (props) => {
-const {data} = props
-console.log(data)
-    return(
+    return (
         <div className="character">
           <div>
-        {/* {handlers.map(index => {
-       return <li kry ={index}>{data.name} </li>
-        })}   */}
-           </div>
+            {handlers.map(handler => {
+            //  <Characterinfo key={handler.id} handler={handler}/>
+            return <div key ={handler.id}>{handler.name}
+        <button
+          
+          onClick={() => setDetails(handler.id)}>More info
+        </button>
+        
+
+             </div>
+            })}
+          </div>
+          
         </div>
     )
 }
 
-export default Character;
