@@ -20,7 +20,7 @@ const[details, setDetails] = useState(null)
     console.log(error);
   })
 return() =>{
-  console.log('component unmounting, the id was' + handlers)
+  console.log('component unmounting, the id was' + handlers.id)
 }
 }, [handlers])
 
@@ -34,7 +34,9 @@ return() =>{
           
           onClick={() => setDetails(handler.id)}>More info
         </button>
+        <p>
         
+        </p>
 
              </div>
             })}

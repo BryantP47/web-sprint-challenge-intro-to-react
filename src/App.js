@@ -25,25 +25,25 @@ axios.get(' https://swapi.dev/api/people')
   .then(function (response) {
     // handle success
     console.log(response.data);
-    setCurrentCharacterId(response.data)
+    setCurrentCharacterId(response.data.id)
   })
   .catch(function (error) {
     // handle error
     console.log(error);
   })
-  return() => {
-
-  }
+ 
  }, [])
- const Chara = props => (
-<div className='chara'>
-    
-     {props.data.name}
-     <button onClick ={() => openDetails(props.data.id)}>
-      More Info
-     </button> 
- </div>
- )
+ /* const Chara = id => {
+   const newChara = data.map(handler => {
+     if (handler.id === id) {
+       return {...handler, name: !handler.name}
+     }else{
+       return handler
+     }
+   })
+   setHandlers(newChara)
+ }*/
+ 
   return (
     <div className="App">
         <h1 className="Header">Characters</h1>
